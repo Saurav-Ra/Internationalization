@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import i18next from 'i18next';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
+  const navigate = useNavigate();
+  const handleLang = (x) => {
+    i18next.changeLanguage(x);
+    navigate('/c');
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => handleLang('en')}>English</button>
+      <button onClick={() => handleLang('ar')}>Arabic</button>
+      <button onClick={() => handleLang('fr')}>French</button>
     </div>
   );
 }
